@@ -75,15 +75,33 @@
   }
 
   .content-destination {
-    width: 75%;
+    width: 100%;
     margin: 0 auto 30px;
 
-    @media @mobile {
-      width: 100%;
+    .imgBox{
+      width: 200px;
+      height: 200px;
+      background:lightgrey;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dragCont{
+      text-align: center;
+      h3{
+        font-size: 3rem;
+      }
+    }
+
+    .dragCont{
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
     }
 
     img {
-      border-radius: 10px;
+      width: 100%;
     }
   }
 

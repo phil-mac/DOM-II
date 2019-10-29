@@ -294,16 +294,30 @@ img {
   }
 }
 .home .content-destination {
-  width: 75%;
+  width: 100%;
   margin: 0 auto 30px;
 }
-@media (max-width: 500px) {
-  .home .content-destination {
-    width: 100%;
-  }
+.home .content-destination .imgBox {
+  width: 200px;
+  height: 200px;
+  background: lightgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home .content-destination .dragCont {
+  text-align: center;
+}
+.home .content-destination .dragCont h3 {
+  font-size: 3rem;
+}
+.home .content-destination .dragCont {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .home .content-destination img {
-  border-radius: 10px;
+  width: 100%;
 }
 .home .content-pick {
   padding-top: 30px;

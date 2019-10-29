@@ -8,7 +8,7 @@
 
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Roboto" rel="stylesheet">
   <link href="css/index.css" rel="stylesheet">
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
   <script src="js/index.js" async></script>
 
   <!--[if lt IE 9]>
@@ -58,9 +58,41 @@
      
     </section>
     <section class="content-destination">
-      <h2>Pick Your Destination</h2>
-      <p>Expedition excursion design darn excursion fun, clean simple organized WordPress Travel colorful webdesign. Traveler blogger website design expedition clean excursion traveling.</p>
-      <img src="img/destination.jpg" alt="Second slide">
+      <div class="instruction">
+          <h2>Rank Your Destinations</h2>
+          <p>Drag and drop the destination images to rank your preference.</p>
+      </div>
+      <div class="dragCont">
+          <div class="draggables">
+              <h3>.</h3>
+              <div class="imgBox">
+                  <div class="imgD" draggable="true">
+                    <img src="https://picsum.photos/id/437/200/200" alt="Second slide">
+                  </div> 
+              </div>
+              <h3>.</h3>
+              <div class="imgBox">
+                  <div class="imgD" draggable="true">
+                    <img src="https://picsum.photos/id/430/200/200" alt="Second slide">
+                  </div> 
+              </div>
+              <h3>.</h3>
+              <div class="imgBox">
+                  <div class="imgD" draggable="true">
+                    <img src="https://picsum.photos/id/432/200/200" alt="Second slide">
+                  </div> 
+              </div>
+          </div>
+          <div class="dropHere">
+            <h3>1st Choice</h3>
+            <div class="imgBox" class="dropBox"></div>
+            <h3>2nd Choice</h3>
+            <div class="imgBox" class="dropBox"></div>
+            <h3>3rd Choice</h3>
+            <div class="imgBox" class="dropBox"></div>
+          </div>
+      </div>
+      
     </section>
     <section class="content-pick">
 
