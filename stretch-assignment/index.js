@@ -4,10 +4,16 @@ const rocketParent = document.querySelector('.blocks');
 let clicking;
 let activeRocket;
 
+let returningRockets = [false, false, false, false, false];
+
+let topCoord = rocketParent.getBoundingClientRect().top + 10;
+
+console.log(topCoord);
+
 rockets.forEach((rocket, index) => {
     rocket.addEventListener('click', () => {
-        TweenMax.to(rocket, 1, {
-            y: `-=${activeRocket.getBoundingClientRect().top - 73.44}`,
+        TweenMax.to(rocket, 0.5, {
+            y: `-=${activeRocket.getBoundingClientRect().top - topCoord}`,
             onComplete: () => {
                 rocketParent.prepend(rocket);
                 TweenMax.to(rocket, 0, {y: 0});
@@ -17,14 +23,16 @@ rockets.forEach((rocket, index) => {
     rocket.addEventListener('mousedown', () => {
         clicking = true;
         activeRocket = rocket;
-        // clearInterval(returnRocket);
+        returningRockets[index] = false;
     })
     rocket.addEventListener('mouseup', () => {
         clicking = false;
-        // returnRocket();
+        console.log("fired mouseup");
+        returningRockets[index] = true;
     })
     rocket.addEventListener('mouseleave', () => {
         clicking = false;
+        returningRockets[index] = true;
     })
     rocket.addEventListener('mouse', () => {
         clicking = false;
@@ -33,11 +41,16 @@ rockets.forEach((rocket, index) => {
 
 setInterval(function(){
     if (clicking && activeRocket.getBoundingClientRect().right < 1000){
-        TweenMax.to(activeRocket, 0.1, {x: "+=10"});
-        console.log(activeRocket.getBoundingClientRect().top);
+        TweenMax.to(activeRocket, 0.1, {x: "+=20"});
     }
+    rockets.forEach((rocket, index) => {
+        if (returningRockets[index] && rocket.getBoundingClientRect().right > 120){
+            TweenMax.to(rocket, 0.1, {x: "-=10"});
+        }
+    })
 }, 100);
 
-// const returnRocket = setInterval(function(){
-//     TweenMax.to(activeRocket, 1, {x: 0}); 
-// }, 100);
+window.addEventListener('resize', () => {
+    topCoord = rocketParent.getBoundingClientRect().top + 10;
+})
+
